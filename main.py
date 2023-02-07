@@ -10,6 +10,17 @@ def party_invoice():
         "C": 15,
         "c": .25,
     }
+
+    word_dict = {
+        "H": "Bouncy House",
+        "S": "Slip & Slide",
+        "Y": "Yard Sign",
+        "p": "Pizza",
+        "b": "Burger",
+        "s": "Soda",
+        "C": "Cake",
+        "c": "Cupcake",
+    }
     
     base_price = 100
     
@@ -29,12 +40,13 @@ def party_invoice():
         item = addon[-1]
         count = int(addon[:-1])
         item_price = price_dict.get(item) * count
+        item_name = word_dict.get(item)
         # print("item: ", item, "count: ", count)
         
         base_price = base_price + item_price
         # print(base_price)
 
-        itemized = f"{item}, {count}, ${'{:.2f}'.format(item_price)}"
+        itemized = f"{item_name}, {count}, ${'{:.2f}'.format(item_price)}"
         print(itemized)
 
 
